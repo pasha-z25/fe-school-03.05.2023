@@ -1,6 +1,8 @@
 :root {
-  --main-color: #f13c6e;
+  --primary-color: #f13c6e;
+  --secondary-color: #efefef;
   --text-color: #333333;
+  --color-white: #ffffff;
   --container-width: 1110px;
   --basic-space: 30px;
 }
@@ -16,6 +18,14 @@ html {
   font-size: 14px;
   line-height: 1.43;
   font-weight: 400;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: #000000;
+  font-weight: 700;
+  line-height: 1.166;
 }
 .hidden {
   display: none !important;
@@ -82,23 +92,42 @@ a:hover {
   cursor: pointer;
   min-width: 170px;
   text-align: center;
+  transition: all 0.2s linear;
 }
 .btn.btn-default {
-  border-color: var(--main-color);
+  border-color: var(--primary-color);
+}
+.btn.btn-default:hover {
+  background-color: var(--primary-color);
+  color: var(--color-white);
 }
 .btn.btn-white {
-  color: #ffffff;
-  border-color: #ffffff;
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+.btn.btn-white:hover {
+  background-color: var(--color-white);
+  color: var(--primary-color);
 }
 .btn.btn-red {
-  color: #ffffff;
-  border-color: var(--main-color);
-  background-color: var(--main-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--color-white);
+}
+.btn.btn-red:hover {
+  background-color: var(--color-white);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 .btn.btn-small {
   min-width: 130px;
   padding: 7px;
   letter-spacing: 0.05em;
+}
+.toTop {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
 }
 
 /*----HEADER-------------------------------------------------------------------------------*/
@@ -123,32 +152,53 @@ a:hover {
 }
 .logo {
   gap: 20px;
-  color: var(--main-color);
+  color: var(--primary-color);
   font-weight: 700;
   font-size: 36px;
   line-height: 1.166;
   letter-spacing: 0.1em;
 }
 .logo:hover {
-  color: var(--main-color);
+  color: var(--primary-color);
 }
 .contacts .tel {
   font-size: 16px;
   line-height: 1.1875;
   color: #000;
 }
+.nav-link {
+  transition: all 0.2s linear;
+}
+.nav-link:hover {
+  color: var(--primary-color);
+}
+.logo svg path {
+  transition: all 0.2s linear;
+}
+.logo:hover svg path.center-line {
+  fill: var(--secondary-color);
+}
+.logo:hover svg path.border-line {
+  fill: var(--primary-color);
+}
+a[href^='tel'] {
+  transition: all 0.2s linear;
+}
+a[href^='tel']:hover {
+  color: var(--primary-color);
+}
 
 /*------------FIRST-SECTION-------------------------------------------------------------*/
 .first-section {
-  background: var(--main-color) url('../img/bg-main.jpg') no-repeat center/cover;
+  background: var(--primary-color) url('../img/bg-main.jpg') no-repeat
+    center/cover;
   color: #ffffff;
   padding-top: 192px;
   padding-bottom: 192px;
 }
 .first-section .main-title {
-  font-weight: 700;
+  color: inherit;
   font-size: 48px;
-  line-height: 1.166;
   margin-bottom: 50px;
 }
 .first-section .description {
@@ -168,9 +218,6 @@ a:hover {
 }
 .section-title {
   font-size: 24px;
-  line-height: 1.166;
-  font-weight: 700;
-  color: #000000;
   margin-bottom: 38px;
 }
 .card-wrap {
@@ -197,9 +244,7 @@ a:hover {
   margin-bottom: 20px;
 }
 .card .price {
-  font-weight: 700;
   font-size: 21px;
-  line-height: 1.2;
   letter-spacing: 0.05em;
   color: #000000;
   margin-bottom: 20px;
@@ -214,7 +259,7 @@ a:hover {
 }
 
 .promo-card {
-  background-color: var(--main-color);
+  background-color: var(--primary-color);
   color: #ffffff;
   padding: 35px 40px;
   display: flex;
@@ -223,9 +268,8 @@ a:hover {
   width: 50%;
 }
 .promo-card .title {
-  font-weight: 700;
+  color: inherit;
   font-size: 18px;
-  line-height: 1.166;
   margin-bottom: 25px;
 }
 .promo-card .description {
@@ -269,10 +313,8 @@ a:hover {
 }
 .footer .nav-group .title {
   max-width: 100px;
-  font-weight: 700;
   font-size: 16px;
   line-height: 1.4;
-  color: #000000;
 }
 .footer .nav-group hr {
   border: none;
@@ -299,4 +341,14 @@ a:hover {
   color: #828282;
   padding-top: 25px;
   padding-bottom: 25px;
+}
+.social-link svg circle,
+.social-link svg path {
+  transition: all 0.2s linear;
+}
+.social-link:hover svg circle {
+  stroke: #77a7ff;
+}
+.social-link:hover svg path {
+  fill: #1877f2;
 }
